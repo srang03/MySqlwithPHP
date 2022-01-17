@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="./WEM.php" method="post">
+        <p><input id="id" type="text" name="id" placeholder="id"></p> 
+        <p><input id="title" type="text" name="title" placeholder="title"></p>
+        <p><input type="submit" onclick="sendPost()"></p>
+    </form>
+</body>
+
+<script>
+    function sendPost(){
+    const obj = {
+        "id": $('#id').val(),
+        "title": $('#title').val()
+        }
+        console.log(typeof obj)
+         console.log(obj)
+          jQuery.ajax({
+        url:"https://integration-session-1.staging.wem.io/webservices/getdata/get",
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        data: JSON.stringify(obj),
+        dataType: 'json',
+        success: function(){
+            alert('success');
+        }
+        ,error: function (error){
+            alert("error")
+        }
+    });
+}
+
+</script>
+</html>
