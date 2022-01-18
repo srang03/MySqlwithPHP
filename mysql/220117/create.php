@@ -1,7 +1,9 @@
 <?php require_once('./lib/conn.php')?>
 <?php require_once('./lib/createList.php')?>
+<?php require_once('./lib/createAuthorList.php')?>
 
 <?php $list = createList($conn);?>
+<?php $author_list = createAuthorList($conn, null);?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +23,7 @@
         <form action="./create_process.php" method="POST">
             <div><input type="text" name="title" placeholder="Title"></div>
             <div><textarea name="description" id="" cols="30" rows="10"></textarea></div>
+            <div><select name="author_id" id=""><?= $author_list?></select></div>
             <div><input type="submit" value="저장"></div>
         </form>
 

@@ -3,6 +3,7 @@
 <?php require_once('./lib/createArticle.php')?>
 <?php $list = createList($conn);?>
 <?php $article = createArticle($conn);?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,10 @@
 </head>
 <body>
     <h1><a href="./index.php">WEB</a></h1>
+    <form action="./author/create_author.php" method="POST">
+        <input type="submit" value="저자 생성">
+    </form>
+
     <ul>
         <?= $list?>
     </ul>
@@ -24,9 +29,11 @@
 
     <?php if(isset($_GET['id']) && !empty($_GET['id'])){
         $id = mysqli_real_escape_string($conn, $_GET['id']);
+        
     ?>
         <form action="./update.php" method="POST">
             <input type="hidden" name="id" value=<?= $id?>>
+            <input type="hidden" name="author_id" value=<?= $article['author_id']?>>
             <input type="submit" value="글 수정">
         </form>
         <form action="./delete.php" method="POST">
@@ -38,6 +45,6 @@
     ?>
     <h3><?=$article['title']?></h3>
     <p><?=$article['description']?></p>
-
+    <p><?=$article['name']?> <?=$article['position']?></p>
 </body>
 </html>
