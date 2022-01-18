@@ -22,11 +22,7 @@
         <input type="hidden" name="id" value=<?=$article['id']?>>
         <input type="submit" value="네"> 
     </form>
-    <form action="../index.php" method="POST">
-        <input type="submit" value="아니오">
-    </form>
-    
-
-  
+    <?php require_once('../common/goToMain.php')?>
+      
 </body>
 </html>

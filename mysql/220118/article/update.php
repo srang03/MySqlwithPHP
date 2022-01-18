@@ -21,12 +21,14 @@
         <?=$list?>
     </ul>
     <form action="./update_process.php" method="POST">
+        <div><input type="hidden" name="id" value=<?=$article['id']?>></div>
         <div><input type="text" name="title" placeholder="글 제목" value="<?=$article['title']?>"></div>
         <div><textarea name="description" id="" cols="30" rows="10" placeholder="글 내용"><?=$article['description']?></textarea></div>
         <select name="author_id" id="">
-        <?=$author_list?>
+            <?=$author_list?>
         </select>
         <div><input type="submit" value="저장"></div>
     </form>
+    <?php require_once('../common/goToMain.php')?>
 </body>
 </html>

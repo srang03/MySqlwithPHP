@@ -26,5 +26,6 @@
         </select>
         <div><input type="submit" value="저장"></div>
     </form>
+    <?php require_once('../common/goToMain.php')?>
 </body>
 </html>
